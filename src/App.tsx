@@ -2,6 +2,7 @@
 import heroPortrait from "./assets/U.png";
 import aboutPortrait from "./assets/U1.png";
 import projectCatalog from "./data/projects.json";
+import { workExperience, type WorkExperience } from "./data/workExperience";
 
 const CALENDLY_URL = "https://calendly.com/dev-usman11/30min";
 const pngAssets = import.meta.glob("./assets/*.png", { eager: true, query: "?url", import: "default" }) as Record<string, string>;
@@ -57,7 +58,7 @@ const services: Service[] = [
     title: "Full-Stack Development",
     description:
       "Modern, scalable web applications with strong frontend experiences and reliable backend architecture.",
-    tech: ["React", "Next.js", "Node.js", "TypeScript"],
+    tech: ["React", "Next.js", "Node.js", "TypeScript", "C#", "ASP.NET Core", "SQL", "REST APIs", "AWS", "Azure"],
   },
   {
     slug: "ai-engineering",
@@ -75,34 +76,30 @@ const services: Service[] = [
       "Custom Shopify stores, themes, apps, integrations and performance optimization.",
     tech: ["Liquid", "Shopify Plus", "APIs", "JavaScript"],
   },
-  {
-    slug: "dotnet-development",
-    number: "04",
-    title: ".NET / C# Development",
-    description:
-      "Modern backend systems, REST APIs and enterprise-ready applications.",
-    tech: ["C#", "ASP.NET Core", "Entity Framework Core", "SQL"],
-  },
-  {
-    slug: "cloud-solutions",
-    number: "05",
-    title: "Cloud Solutions",
-    description:
-      "Cloud-ready applications, deployments and infrastructure fundamentals.",
-    tech: ["AWS", "Azure", "Docker"],
-  },
-  {
-    slug: "api-development",
-    number: "06",
-    title: "API Development",
-    description:
-      "Reliable REST APIs, database integrations, authentication and third-party services.",
-    tech: ["REST", "SQL", "MongoDB", "Supabase"],
-  },
 ];
 
 const projects = projectCatalog as Project[];
-const featuredProjectSlugs = [
+const legacyServiceAliases: Record<string, string> = {
+  "dotnet-development": "full-stack-development",
+  "api-development": "full-stack-development",
+  "cloud-solutions": "full-stack-development",
+};
+const projectGroups = [
+  {
+    category: "Full-Stack",
+    number: "01",
+    title: "Full-Stack Projects",
+    projects: projects.filter((project) => project.category === "Full-Stack").sort((a, b) => {
+      const priority = ["student-evaluation-system"];
+      const aRank = priority.indexOf(a.slug);
+      const bRank = priority.indexOf(b.slug);
+      return (aRank < 0 ? priority.length : aRank) - (bRank < 0 ? priority.length : bRank);
+    }),
+  },
+  { category: "Frontend", number: "02", title: "Frontend Projects", projects: projects.filter((project) => project.category === "Frontend") },
+  { category: "Shopify", number: "03", title: "Shopify Projects", projects: projects.filter((project) => project.category === "Shopify") },
+];
+const featuredProjectSlugs = new Set([
   "trendorauk",
   "ikhwan-unstitched",
   "glamvision-cosmetics",
@@ -111,8 +108,10 @@ const featuredProjectSlugs = [
   "skysphere-weather-forecast",
   "adab-e-jahan",
   "student-evaluation-system",
-];
-const featuredProjects = projects.filter((project) => featuredProjectSlugs.includes(project.slug));
+]);
+const featuredProjects = projectGroups.flatMap((group) =>
+  group.projects.filter((project) => featuredProjectSlugs.has(project.slug)),
+);
 const articles: Article[] = [
   {
     slug: "better-full-stack-applications",
@@ -165,13 +164,16 @@ const articles: Article[] = [
 ];
 
 const serviceCapabilities: Record<string, string[]> = {
-  "full-stack-development": ["Modern web applications", "Frontend experiences", "Backend architecture", "React, Next.js and Node.js"],
+  "full-stack-development": ["Modern web applications", "Frontend and backend architecture", ".NET / C# development", "REST APIs and integrations", "Database development", "Cloud-ready deployment"],
   "ai-engineering": ["AI-powered applications", "Automation and intelligent workflows", "AI API integrations", "Python, FastAPI and OpenAI"],
   "shopify-development": ["Custom Shopify stores", "Theme and app development", "Store integrations", "Performance optimization"],
-  "dotnet-development": ["C# and ASP.NET Core applications", "REST API development", "SQL data integrations", "Enterprise-ready systems"],
-  "cloud-solutions": ["Cloud-ready applications", "Deployment support", "Infrastructure fundamentals", "AWS, Azure and Docker"],
-  "api-development": ["REST APIs", "Authentication", "Database integrations", "Third-party services"],
 };
+
+const fullStackSpecializations = [
+  { title: ".NET / C# Development", description: "Modern backend systems, REST APIs and enterprise-ready applications.", tech: ["C#", "ASP.NET Core", "Entity Framework Core", "SQL"] },
+  { title: "API Development", description: "Reliable REST APIs, database integrations, authentication and third-party services.", tech: ["REST", "SQL", "MongoDB", "Supabase"] },
+  { title: "Cloud Solutions", description: "Cloud-ready applications, deployments and infrastructure fundamentals.", tech: ["AWS", "Azure", "Docker"] },
+];
 
 function getRelatedProjects(service: Service) {
   return projects.filter((project) => {
@@ -180,9 +182,6 @@ function getRelatedProjects(service: Service) {
       case "full-stack-development": return project.category === "Full-Stack";
       case "ai-engineering": return /\b(ai|openai|fastapi|python)\b/i.test(searchable);
       case "shopify-development": return project.category === "Shopify";
-      case "dotnet-development": return /(?:\.net|c#|asp\.net|sql server)/i.test(searchable);
-      case "cloud-solutions": return /\b(aws|azure|docker|cloud)\b/i.test(searchable);
-      case "api-development": return /\b(api|rest|supabase|firebase|mongodb)\b/i.test(searchable);
       default: return false;
     }
   }).slice(0, 3);
@@ -210,7 +209,7 @@ function Link({ to, children, className = "", onClick }: LinkProps) {
 }
 
 function Arrow() {
-  return <span className="arrow" aria-hidden="true">?</span>;
+  return <span className="arrow" aria-hidden="true">↗</span>;
 }
 
 function ButtonLink({
@@ -288,13 +287,43 @@ function TagList({ items }: { items: string[] }) {
   );
 }
 
+function ExperienceList({ entries, compact = false }: { entries: WorkExperience[]; compact?: boolean }) {
+  return (
+    <div className={`experience-list ${compact ? "experience-list-compact" : ""}`}>
+      {entries.map((entry, index) => (
+        <article className="experience-entry" key={entry.id}>
+          <div className="experience-entry-meta">
+            <span className="experience-entry-index">{String(index + 1).padStart(2, "0")}</span>
+            <span className="experience-entry-duration">{entry.duration}</span>
+            {!compact && <span className={`experience-entry-status ${entry.status === "Current" ? "is-current" : ""}`}>{entry.status}</span>}
+          </div>
+          <div className="experience-entry-content">
+            <div className="experience-entry-heading">
+              <h3>{entry.title}</h3>
+              <p><span>{entry.company}</span><span>{entry.location}</span>{entry.type !== entry.company && <span>{entry.type}</span>}</p>
+            </div>
+            {entry.description && <p className="experience-entry-description">{entry.description}</p>}
+            {!compact && entry.achievements.length > 0 && <ul className="experience-achievements">{entry.achievements.map((achievement) => <li key={achievement}>{achievement}</li>)}</ul>}
+            {!compact && <div className="experience-technologies"><span>Technologies</span><TagList items={entry.technologies} /></div>}
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobilePanel, setMobilePanel] = useState<string | null>(null);
+  const [desktopPanel, setDesktopPanel] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const menuToggleRef = useRef<HTMLButtonElement>(null);
   const mobileNavRef = useRef<HTMLElement>(null);
+  const desktopNavRef = useRef<HTMLElement>(null);
+  const servicesTriggerRef = useRef<HTMLButtonElement>(null);
+  const pagesTriggerRef = useRef<HTMLButtonElement>(null);
+  const ignoreDesktopFocusRef = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -308,6 +337,26 @@ function Header() {
     window.addEventListener("popstate", onRouteChange);
     return () => window.removeEventListener("popstate", onRouteChange);
   }, []);
+
+  useEffect(() => {
+    if (!desktopPanel) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (!desktopNavRef.current?.contains(event.target as Node)) setDesktopPanel(null);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      const trigger = desktopPanel === "services" ? servicesTriggerRef.current : pagesTriggerRef.current;
+      setDesktopPanel(null);
+      ignoreDesktopFocusRef.current = true;
+      trigger?.focus();
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [desktopPanel]);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -351,39 +400,41 @@ function Header() {
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="nav-shell">
-        <Link to="/" className="brand" onClick={close}>
-          Usman Ali <span className="brand-dot" aria-hidden="true" />
+        <Link to="/" className="brand" onClick={close} aria-label="Usman Ali, home" aria-current={isActive("/") ? "page" : undefined}>
+          <span className="brand-monogram" aria-hidden="true">UA</span>
+          <span className="brand-lockup"><strong>Usman Ali</strong><small>Developer</small></span>
         </Link>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link to="/" className={isActive("/") ? "is-active" : ""} aria-current={isActive("/") ? "page" : undefined}>Home</Link>
-          <div className="nav-group">
-            <button className={`nav-trigger ${isActive("/services") ? "is-active" : ""}`} aria-haspopup="true">Services <span>?</span></button>
-            <div className="dropdown services-dropdown">
+        <nav className="desktop-nav" aria-label="Primary navigation" ref={desktopNavRef}>
+          <div className={`nav-group ${desktopPanel === "services" ? "is-open" : ""}`} onMouseEnter={() => setDesktopPanel("services")} onMouseLeave={() => setDesktopPanel(null)} onFocus={() => { if (ignoreDesktopFocusRef.current) ignoreDesktopFocusRef.current = false; else setDesktopPanel("services"); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setDesktopPanel(null); }}>
+            <button ref={servicesTriggerRef} type="button" className={`nav-trigger ${isActive("/services") ? "is-active" : ""}`} aria-haspopup="true" aria-expanded={desktopPanel === "services"} aria-controls="services-dropdown" onClick={() => setDesktopPanel(desktopPanel === "services" ? null : "services")}>Services <span className="nav-chevron" aria-hidden="true" /></button>
+            <div className="dropdown services-dropdown" id="services-dropdown">
+              <div className="dropdown-heading"><span>Services</span><strong>What I build</strong><small>01 — 03 / Core capabilities</small></div>
               {services.map((service) => (
                 <Link to={`/services/${service.slug}`} className={`dropdown-item ${isActive(`/services/${service.slug}`) ? "is-active" : ""}`} aria-current={isActive(`/services/${service.slug}`) ? "page" : undefined} key={service.slug}>
-                  <span>{service.number}</span>
-                  <div>
+                  <span className="dropdown-index">{service.number}</span>
+                  <div className="dropdown-copy">
                     <strong>{service.title}</strong>
                     <small>{service.description}</small>
                   </div>
                   <Arrow />
                 </Link>
               ))}
-              <Link to="/services" className={`dropdown-all ${isActive("/services") ? "is-active" : ""}`} aria-current={isActive("/services") ? "page" : undefined}>View All Services <span>?</span></Link>
+              <Link to="/services" className={`dropdown-all ${isActive("/services") ? "is-active" : ""}`} aria-current={isActive("/services") ? "page" : undefined}>View all services <Arrow /></Link>
             </div>
           </div>
           <Link to="/blog" className={isActive("/blog") ? "is-active" : ""} aria-current={isActive("/blog") ? "page" : undefined}>Blog</Link>
-          <div className="nav-group">
-            <button className={`nav-trigger ${["/about", "/projects", "/faq"].some(isActive) ? "is-active" : ""}`} aria-haspopup="true">Pages <span>?</span></button>
-            <div className="dropdown pages-dropdown">
-              <Link to="/about" className={isActive("/about") ? "is-active" : ""} aria-current={isActive("/about") ? "page" : undefined}>About <Arrow /></Link>
-              <Link to="/projects" className={isActive("/projects") ? "is-active" : ""} aria-current={isActive("/projects") ? "page" : undefined}>Projects <Arrow /></Link>
-              <Link to="/faq" className={isActive("/faq") ? "is-active" : ""} aria-current={isActive("/faq") ? "page" : undefined}>FAQ <Arrow /></Link>
+          <div className={`nav-group ${desktopPanel === "pages" ? "is-open" : ""}`} onMouseEnter={() => setDesktopPanel("pages")} onMouseLeave={() => setDesktopPanel(null)} onFocus={() => { if (ignoreDesktopFocusRef.current) ignoreDesktopFocusRef.current = false; else setDesktopPanel("pages"); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setDesktopPanel(null); }}>
+            <button ref={pagesTriggerRef} type="button" className={`nav-trigger ${["/about", "/projects", "/faq"].some(isActive) ? "is-active" : ""}`} aria-haspopup="true" aria-expanded={desktopPanel === "pages"} aria-controls="pages-dropdown" onClick={() => setDesktopPanel(desktopPanel === "pages" ? null : "pages")}>Explore <span className="nav-chevron" aria-hidden="true" /></button>
+            <div className="dropdown pages-dropdown" id="pages-dropdown">
+              <div className="dropdown-heading"><span>Explore</span><strong>More about my work</strong></div>
+              <Link to="/projects" className={isActive("/projects") ? "is-active" : ""} aria-current={isActive("/projects") ? "page" : undefined}><span className="pages-link-copy"><strong>Projects</strong><small>Selected work and case studies</small></span><Arrow /></Link>
+              <Link to="/about" className={isActive("/about") ? "is-active" : ""} aria-current={isActive("/about") ? "page" : undefined}><span className="pages-link-copy"><strong>About</strong><small>Experience, skills and background</small></span><Arrow /></Link>
+              <Link to="/faq" className={isActive("/faq") ? "is-active" : ""} aria-current={isActive("/faq") ? "page" : undefined}><span className="pages-link-copy"><strong>FAQ</strong><small>Common questions</small></span><Arrow /></Link>
             </div>
           </div>
           <Link to="/contact" className={isActive("/contact") ? "is-active" : ""} aria-current={isActive("/contact") ? "page" : undefined}>Contact</Link>
         </nav>
-        <CalendlyLink />
+        <CalendlyLink className="button nav-cta">Let&apos;s Talk</CalendlyLink>
         <button
           ref={menuToggleRef}
           className="menu-toggle"
@@ -437,7 +488,7 @@ function Header() {
             </div>
           )}
           <Link to="/contact" onClick={close} className={`mobile-nav-link ${isActive("/contact") ? "is-active" : ""}`} aria-current={isActive("/contact") ? "page" : undefined}><span className="mobile-nav-index">05</span><span>Contact</span><Arrow /></Link>
-          <div className="mobile-nav-bottom"><div className="mobile-nav-cta"><span>Have a project in mind?</span><CalendlyLink onClick={close}>Book a Call</CalendlyLink></div><div className="mobile-nav-socials" aria-label="Social links"><a href="https://github.com/MUGHAL-66" target="_blank" rel="noopener noreferrer">GitHub <Arrow /></a><a href="https://www.linkedin.com/in/usmanali66/" target="_blank" rel="noopener noreferrer">LinkedIn <Arrow /></a><a href="https://wa.me/923107243590" target="_blank" rel="noopener noreferrer">WhatsApp <Arrow /></a><a href="mailto:dev.usman11@gmail.com">Email <Arrow /></a></div><div className="mobile-nav-meta"><span>© 2026 Usman Ali</span><span>Frontend · Shopify · Software</span></div></div>
+          <div className="mobile-nav-bottom"><div className="mobile-nav-cta"><span>Have a project in mind?</span><CalendlyLink onClick={close}>Let&apos;s Talk</CalendlyLink></div><div className="mobile-nav-socials" aria-label="Social links"><a href="https://github.com/MUGHAL-66" target="_blank" rel="noopener noreferrer">GitHub <Arrow /></a><a href="https://www.linkedin.com/in/usmanali66/" target="_blank" rel="noopener noreferrer">LinkedIn <Arrow /></a><a href="https://wa.me/923107243590" target="_blank" rel="noopener noreferrer">WhatsApp <Arrow /></a><a href="mailto:dev.usman11@gmail.com">Email <Arrow /></a></div><div className="mobile-nav-meta"><span>© 2026 Usman Ali</span><span>Frontend · Shopify · Software</span></div></div>
           </nav>
         </div>
       )}
@@ -725,8 +776,14 @@ function HomePage() {
           </div>
         </section>
 
+        <section className="section home-experience-section">
+          <div className="home-experience-heading"><div><SectionLabel>04 — Experience</SectionLabel><h2>WORK SHAPED<br /><em>BY BUILDING.</em></h2></div><p>Building products across full-stack, AI and ecommerce.</p></div>
+          <ExperienceList entries={workExperience.slice(0, 3)} compact />
+          <Link to="/about" className="text-link home-experience-link">View Experience <Arrow /></Link>
+        </section>
+
         <section className="section projects-section">
-          <SectionLabel>04 — Selected Work</SectionLabel>
+          <SectionLabel>05 — Selected Work</SectionLabel>
           <div className="section-heading">
             <h2>PROJECTS I&apos;VE<br /><em>BUILT.</em></h2>
           </div>
@@ -739,7 +796,7 @@ function HomePage() {
         </section>
 
         <section className="section why-section">
-          <SectionLabel>05 — Why Me</SectionLabel>
+          <SectionLabel>06 — Why Me</SectionLabel>
           <div className="why-layout">
             <div className="why-heading">
               <h2>WHY CLIENTS<br /><em>CHOOSE TO WORK WITH ME.</em></h2>
@@ -761,7 +818,7 @@ function HomePage() {
         </section>
 
         <section className="section process-section">
-          <SectionLabel>06 — Process</SectionLabel>
+          <SectionLabel>07 — Process</SectionLabel>
           <div className="process-heading-row">
             <div className="section-heading">
               <h2>FROM IDEA<br /><em>TO PRODUCT.</em></h2>
@@ -787,7 +844,7 @@ function HomePage() {
         </section>
 
         <section className="section blog-preview">
-          <SectionLabel>07 — Insights</SectionLabel>
+          <SectionLabel>08 — Insights</SectionLabel>
           <div className="section-heading">
             <h2>LATEST TIPS<br /><em>&amp; TRICKS.</em></h2>
             <ButtonLink to="/blog" secondary>View All Articles</ButtonLink>
@@ -812,8 +869,8 @@ function ServicesPage() {
       />
       <section className="section page-section">
         <div className="section-heading compact">
-          <h2>SIX WAYS I CAN<br /><em>HELP YOU BUILD.</em></h2>
-          <p>From early product thinking through deployment and iteration.</p>
+          <h2>THREE PRIMARY<br /><em>SERVICES.</em></h2>
+          <p>Focused expertise across full-stack software, AI engineering and Shopify.</p>
         </div>
         <ServiceList />
       </section>
@@ -834,6 +891,7 @@ function ServiceDetailPage({ service }: { service: Service }) {
         <aside className="service-stack"><SectionLabel>Tools & Technologies</SectionLabel><TagList items={service.tech} /></aside></div>
       </section>
       <section className="section service-capabilities"><div><SectionLabel>Capabilities / {service.number}</SectionLabel><h2>DETAILS THAT<br /><em>MAKE THE WORK.</em></h2></div><ol>{capabilities.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><strong>{item}</strong><p>{service.description}</p></li>)}</ol></section>
+      {service.slug === "full-stack-development" && <section className="section service-specializations"><div className="service-specializations-heading"><SectionLabel>Full-Stack Specializations / 01—03</SectionLabel><h2>BACKEND, APIs<br /><em>& CLOUD.</em></h2></div><div className="service-specialization-list">{fullStackSpecializations.map((specialization, index) => <article key={specialization.title}><span className="specialization-index">0{index + 1}</span><div><h3>{specialization.title}</h3><p>{specialization.description}</p><TagList items={specialization.tech} /></div><Arrow /></article>)}</div></section>}
       <section className="section service-process-section">
         <SectionLabel>Process / From brief to launch</SectionLabel>
         <div className="service-timeline">
@@ -859,15 +917,16 @@ function AboutPage() {
       <section className="section about-profile-hero"><div className="about-profile-copy"><SectionLabel>About / 01</SectionLabel><h1>I BUILD DIGITAL EXPERIENCES THAT SOLVE REAL PROBLEMS.</h1><p>I&apos;m Usman Ali, a software developer focused on building modern digital products across web development, Shopify and AI engineering.</p><div className="button-row"><ButtonLink to="/projects">View Projects</ButtonLink><CalendlyLink>Book a Call</CalendlyLink></div><div className="about-role-row"><span>Frontend Developer</span><span>Shopify Developer</span><span>Software Developer</span></div></div><figure className="about-profile-photo"><img src={aboutPagePortrait} alt="Usman Ali" /><figcaption><strong>Usman Ali</strong><span>Developer / Digital products</span></figcaption><i aria-hidden="true" /></figure></section>
       <section className="section about-story"><div className="about-story-label"><SectionLabel>01 — Who I Am</SectionLabel></div><div className="about-story-copy"><p>I work across full-stack applications, Shopify commerce and AI-powered systems. I start by understanding the problem and the people around it, then make technical choices that serve the product.</p><p>My focus isn&apos;t simply writing code. It&apos;s designing a clear solution and building software that can grow with the people and business behind it.</p></div></section>
       <section className="section about-pillars"><div className="about-story-label"><SectionLabel>02 — How I Work</SectionLabel></div><ol className="about-principles"><li><span>01</span><strong>Think clearly</strong></li><li><span>02</span><strong>Build simply</strong></li><li><span>03</span><strong>Refine relentlessly</strong></li><li><span>04</span><strong>Ship intentionally</strong></li></ol></section>
-      <section className="section about-journey"><div><SectionLabel>Toolbox / 03</SectionLabel><h2>TOOLS I USE<br /><em>WITH INTENTION.</em></h2></div><div><p>My work spans a growing range of technologies. I choose tools to suit the problem and keep learning through hands-on building.</p><TagList items={["React", "TypeScript", "Node.js", "Python", "Shopify", ".NET", "Azure", "AWS"]} /></div></section>
+      <section className="section about-work-experience"><div className="about-work-experience-heading"><SectionLabel>03 — Work Experience</SectionLabel><h2>EXPERIENCE<br /><em>IN PRACTICE.</em></h2><p>Roles across software development, AI, Shopify and digital marketing.</p></div><ExperienceList entries={workExperience} /></section>
+      <section className="section about-journey"><div><SectionLabel>Toolbox / 04</SectionLabel><h2>TOOLS I USE<br /><em>WITH INTENTION.</em></h2></div><div><p>My work spans a growing range of technologies. I choose tools to suit the problem and keep learning through hands-on building.</p><TagList items={["React", "TypeScript", "Node.js", "Python", "Shopify", ".NET", "Azure", "AWS"]} /></div></section>
     </main>
   );
 }
 
 function ProjectsPage() {
-  const filters = ["All", ...new Set(projects.map((project) => project.category))];
+  const filters = ["All", ...projectGroups.map((group) => group.category)];
   const [filter, setFilter] = useState("All");
-  const visible = filter === "All" ? projects : projects.filter((project) => project.category === filter);
+  const visibleGroups = filter === "All" ? projectGroups : projectGroups.filter((group) => group.category === filter);
 
   return (
     <main>
@@ -875,7 +934,7 @@ function ProjectsPage() {
         eyebrow="Selected Work / 02"
         title="A SELECTION OF"
         italic="THINGS I’VE BUILT."
-        description="Digital products and experiments across frontend, full-stack and Shopify development."
+        description="Full-stack projects first, followed by frontend and Shopify work—grouped by the kind of product engineering behind each one."
       />
       <section className="section page-section">
         <div className="filter-bar" aria-label="Filter projects">
@@ -883,8 +942,11 @@ function ProjectsPage() {
             <button className={filter === item ? "active" : ""} aria-pressed={filter === item} onClick={() => setFilter(item)} key={item}>{item}</button>
           ))}
         </div>
-        <div className="projects-page-grid">{visible[0] && <ProjectCard project={visible[0]} featured />}</div>
-        <div className="editorial-project-list">{visible.slice(1).map((project, index) => <EditorialProject project={project} index={index} key={project.slug} />)}</div>
+        {visibleGroups.map((group) => <section className={`project-category-section project-category-${group.category.toLowerCase()}`} id={`project-category-${group.category.toLowerCase()}`} key={group.category}>
+          <header className="project-category-heading"><span>{group.number} / {group.category}</span><h2>{group.title}</h2><small>{String(group.projects.length).padStart(2, "0")} projects</small></header>
+          {group.category === "Full-Stack" && group.projects[0] && <div className="projects-page-grid"><ProjectCard project={group.projects[0]} featured /></div>}
+          <div className="editorial-project-list">{(group.category === "Full-Stack" ? group.projects.slice(1) : group.projects).map((project, index) => <EditorialProject project={project} index={index} key={project.slug} />)}</div>
+        </section>)}
       </section>
     </main>
   );
@@ -1237,7 +1299,8 @@ function NotFoundPage() {
 function RouteView({ path }: { path: string }) {
   const serviceMatch = path.match(/^\/services\/([^/]+)$/);
   if (serviceMatch) {
-    const service = services.find((item) => item.slug === serviceMatch[1]);
+    const serviceSlug = legacyServiceAliases[serviceMatch[1]] ?? serviceMatch[1];
+    const service = services.find((item) => item.slug === serviceSlug);
     return service ? <ServiceDetailPage service={service} /> : <NotFoundPage />;
   }
 
@@ -1273,6 +1336,14 @@ export default function App() {
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
+
+  useEffect(() => {
+    const match = path.match(/^\/services\/([^/]+)$/);
+    const canonicalService = match && legacyServiceAliases[match[1]];
+    if (!canonicalService) return;
+    window.history.replaceState({}, "", `/services/${canonicalService}`);
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  }, [path]);
 
   useEffect(() => {
     const titles: Record<string, string> = {
