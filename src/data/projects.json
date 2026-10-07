@@ -1,0 +1,928 @@
+[
+  {
+    "slug": "trendorauk",
+    "number": "01",
+    "title": "TrendoraUK",
+    "category": "Shopify",
+    "description": "A modern UK-based Shopify pet store offering premium pet accessories, cozy beds, and grooming essentials. Designed and developed as a fully customizable Shopify theme tailored for my client’s needs — featuring custom sections, announcement sliders, and an optimized user experience for higher conversions.",
+    "tech": [
+      "Shopify",
+      "Liquid",
+      "HTML/CSS",
+      "JavaScript",
+      "Swiper.js",
+      "Responsive Design"
+    ],
+    "image": "https://images.unsplash.com/photo-1516453734593-8d198ae84bcf?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageAlt": "TrendoraUK project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://trendorauk.com"
+  },
+  {
+    "slug": "ikhwan-unstitched",
+    "number": "02",
+    "title": "Ikhwan Unstitched",
+    "category": "Shopify",
+    "description": "A premium Pakistani clothing brand specializing in men’s and women’s unstitched collections. Designed and developed as a fully customizable Shopify store for my fashion industry client — featuring bespoke theme sections, advanced WhatsApp integration, and a seamless, mobile-responsive design for best shopping experience.",
+    "tech": [
+      "Shopify",
+      "Liquid",
+      "HTML/CSS",
+      "Theme Customization",
+      "Responsive Design"
+    ],
+    "image": "https://images.unsplash.com/photo-1758264839086-2bdecc06d9a3?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageAlt": "Ikhwan Unstitched project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://ikhwanunstitched.com"
+  },
+  {
+    "slug": "glamvision-cosmetics",
+    "number": "03",
+    "title": "GlamVision Cosmetics",
+    "category": "Shopify",
+    "description": "A modern Pakistani beauty and skincare brand developed as a fully customizable Shopify store for my client. Features elegant product showcases, custom theme sections, promotional banners, and a mobile-optimized layout ensuring a seamless shopping experience. Designed with a focus on brand storytelling and user engagement navigation.",
+    "tech": [
+      "Shopify",
+      "Liquid",
+      "HTML/CSS",
+      "JavaScript",
+      "Theme Customization"
+    ],
+    "image": "https://images.unsplash.com/photo-1691187861257-a56c4aa2d7fb?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageAlt": "GlamVision Cosmetics project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://kr1nr8-xp.myshopify.com/"
+  },
+  {
+    "slug": "luxury-homes",
+    "number": "04",
+    "title": "LuxuryHomes",
+    "category": "Frontend",
+    "description": "A modern React-based real estate website showcasing luxury homes, property listings, and responsive UI design. Built for an elegant user experience with clean layouts and smooth navigation.",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Node.js",
+      "UI/UX"
+    ],
+    "image": "https://images.unsplash.com/photo-1649769425787-bb8f1119b072?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjByZWFsJTIwZXN0YXRlJTIwaG9tZXN8ZW58MXx8fHwxNzU4MTIwMzI1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "imageAlt": "LuxuryHomes project preview",
+    "overview": "LuxuryHomes is a modern real estate website focused on presenting luxury properties through an elegant and responsive user interface.",
+    "challenge": "Create a polished real estate experience that presents luxury properties clearly while maintaining responsive layouts and smooth navigation.",
+    "solution": "Built a React-based responsive interface with clean layouts, property-focused sections, and an elegant visual presentation.",
+    "role": "Frontend Developer",
+    "features": [
+      {
+        "title": "Property Listings",
+        "description": "Showcases luxury homes and property information through structured listings."
+      },
+      {
+        "title": "Responsive UI",
+        "description": "Provides a responsive experience across different screen sizes."
+      },
+      {
+        "title": "Clean Navigation",
+        "description": "Uses a simple navigation structure for a smooth browsing experience."
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://mughal-66.github.io/Luxury-Homes/",
+    "githubUrl": "https://github.com/MUGHAL-66/Luxury-Homes"
+  },
+  {
+    "slug": "aquaaid",
+    "number": "05",
+    "title": "AquaAid",
+    "category": "Frontend",
+    "description": "An interactive React application focused on clean water awareness and resources. Features informative sections, responsive layouts, and engaging visuals to promote accessibility and awareness.",
+    "tech": [
+      "React",
+      "JavaScript",
+      "CSS3",
+      "HTML5",
+      "UI/UX"
+    ],
+    "image": "https://images.unsplash.com/photo-1741081038901-f258dd2f5a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZW9wbGUlMjBmbG9vZCUyMGRpc2FzdGVyJTIwd2F0ZXIlMjBjcmlzaXN8ZW58MXx8fHwxNzU4MTI1MDYyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "imageAlt": "AquaAid project preview",
+    "overview": "AquaAid is an interactive awareness platform focused on clean water, accessibility, and resources through an engaging and responsive web experience.",
+    "challenge": "Present clean water awareness and resource information in an engaging format that remains accessible across different devices.",
+    "solution": "Created a responsive React application with informative sections, engaging visuals, and a clean user interface.",
+    "role": "Frontend Developer",
+    "features": [
+      {
+        "title": "Water Awareness",
+        "description": "Provides informative content focused on clean water awareness."
+      },
+      {
+        "title": "Responsive Layout",
+        "description": "Adapts the interface across different screen sizes and devices."
+      },
+      {
+        "title": "Engaging Visuals",
+        "description": "Uses visual content to make the awareness experience more engaging."
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://mughal-66.github.io/AquaAid/",
+    "githubUrl": "https://github.com/MUGHAL-66/AquaAid"
+  },
+  {
+    "slug": "skysphere-weather-forecast",
+    "number": "06",
+    "title": "SkySphere Weather Forecast",
+    "category": "Frontend",
+    "description": "A real-time weather forecasting application with dynamic visuals and responsive design. Displays temperature, conditions, and forecasts using external APIs for live weather data.",
+    "tech": [
+      "React",
+      "JavaScript",
+      "Responsive",
+      "CSS"
+    ],
+    "image": "https://images.unsplash.com/photo-1571733949554-f9c9c0bbdab3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWF0aGVyJTIwc3RhdGlvbiUyMG1ldGVvcm9sb2d5JTIwZXF1aXBtZW50fGVufDF8fHx8MTc1ODEyNTA2N3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "imageAlt": "SkySphere Weather Forecast project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://mughal-66.github.io/SkySphere-Weather-Forecast/",
+    "githubUrl": "https://github.com/MUGHAL-66/SkySphere-Weather-Forecast"
+  },
+  {
+    "slug": "serenique-digital-wellness-tool",
+    "number": "07",
+    "title": "Serenique Digital Wellness Tool",
+    "category": "Frontend",
+    "description": "A wellness-focused dashboard for tracking digital habits, productivity, and screen time. Includes data visualization, progress charts, and personalized insights for improved digital well-being.",
+    "tech": [
+      "React",
+      "Chart.js",
+      "JavaScript",
+      "CSS3",
+      "UI/UX"
+    ],
+    "image": "https://images.unsplash.com/photo-1688811364750-92892da5497d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZW4lMjBkaWdpdGFsJTIwd2VsbG5lc3MlMjBtZWRpdGF0aW9ufGVufDF8fHx8MTc1ODEyNTA1OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "imageAlt": "Serenique Digital Wellness Tool project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://mughal-66.github.io/Serenique-Digital-Wellness-Tool/",
+    "githubUrl": "https://github.com/MUGHAL-66/Serenique-Digital-Wellness-Tool"
+  },
+  {
+    "slug": "woodenwhisper",
+    "number": "08",
+    "title": "WoodenWhisper",
+    "category": "Frontend",
+    "description": "A modern, fully responsive furniture e-commerce web app featuring product listings, detailed product pages, and a sleek cart system. Built with Vite + React for fast performance and deployed on GitHub Pages.",
+    "tech": [
+      "React",
+      "TypeScript",
+      "E-commerce",
+      "Tailwind CSS"
+    ],
+    "image": "https://images.unsplash.com/photo-1686998544041-454ee20d93de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b29kZW4lMjBmdXJuaXR1cmUlMjBlY29tbWVyY2UlMjBzdG9yZXxlbnwxfHx8fDE3NTgxMjAzNDB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "imageAlt": "WoodenWhisper project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://mughal-66.github.io/WoodenWhisper/",
+    "githubUrl": "https://github.com/MUGHAL-66/WoodenWhisper"
+  },
+  {
+    "slug": "luxury-travel-planner",
+    "number": "09",
+    "title": "Luxury Travel Planner",
+    "category": "Frontend",
+    "description": "A responsive travel planning platform where users can explore destinations, create itineraries, and manage trips. Includes elegant UI components and smooth page transitions for a premium experience.",
+    "tech": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "JavaScript"
+    ],
+    "image": "https://images.unsplash.com/photo-1616611213095-58abb651f70c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB0cmF2ZWwlMjBwbGFubmluZyUyMHBsYXRmb3JtfGVufDF8fHx8MTc1ODEyMDM0M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "imageAlt": "Luxury Travel Planner project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://mughal-66.github.io/Packtrack-Travel-Planner/",
+    "githubUrl": "https://github.com/MUGHAL-66/Packtrack-Travel-Planner"
+  },
+  {
+    "slug": "techstart",
+    "number": "10",
+    "title": "TechStart",
+    "category": "Frontend",
+    "description": "TechStart delivers innovative tech solutions. We help businesses grow and transform digitally. Our expert team builds products that exceed expectations. From startups to enterprises, we drive impactful change.",
+    "tech": [
+      "React",
+      "HTML",
+      "Tailwind CSS",
+      "UI/UX"
+    ],
+    "image": "https://images.unsplash.com/photo-1742836531236-0e439730dd27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwYnVzaW5lc3MlMjBzdGFydHVwJTIwdGVjaHxlbnwxfHx8fDE3NTgxMzY2Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "imageAlt": "TechStart project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://mughal-66.github.io/Landing-Page/index.html",
+    "githubUrl": "https://github.com/MUGHAL-66/Landing-Page"
+  },
+  {
+    "slug": "fixigo-repair-system",
+    "number": "11",
+    "title": "Fixigo Repair System",
+    "category": "Frontend",
+    "description": "Fixigo provides a premium device repair experience. Transform broken devices into like-new condition quickly. Expert technicians ensure guaranteed results. Fast, reliable service with 90-day warranty.",
+    "tech": [
+      "React",
+      "HTML",
+      "Tailwind CSS",
+      "UI/UX"
+    ],
+    "image": "https://images.unsplash.com/photo-1579370740910-0aaeeb2d29b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBwaG9uZSUyMHJlcGFpciUyMHNob3AlMjBzZXJ2aWNlfGVufDF8fHx8MTc1ODEzNjY4MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "imageAlt": "Fixigo Repair System project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://mughal-66.github.io/Fixigo-Frontend-Design/",
+    "githubUrl": "https://github.com/MUGHAL-66/Fixigo-Frontend-Design"
+  },
+  {
+    "slug": "zaiqa-e-nawab",
+    "number": "12",
+    "title": "Zaiqa-e-Nawab",
+    "category": "Frontend",
+    "description": "Zaiqa-e-Nawab is a modern restaurant website frontend to deliver a premium dining experience online. It showcases menu items, booking options, and restaurant details in engaging way.",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "UI/UX"
+    ],
+    "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1080&q=80",
+    "imageAlt": "Zaiqa-e-Nawab project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/Zaiqa-e-Nawab/",
+    "githubUrl": "https://github.com/MUGHAL-66/Zaiqa-e-Nawab"
+  },
+  {
+    "slug": "citycare-portal",
+    "number": "13",
+    "title": "CityCare Portal",
+    "category": "Frontend",
+    "description": "CityCare is a modern frontend web application built as the user-facing layer of a comprehensive smart-city ecosystem.It provides citizens, city administrators, and service providers with real-time access to essential city services.",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite"
+    ],
+    "image": "https://images.unsplash.com/photo-1432761986184-2220081f3921?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "City skyline for the CityCare Portal project",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/Citycare-Portal/",
+    "githubUrl": "https://github.com/MUGHAL-66/Citycare-Portal"
+  },
+  {
+    "slug": "event-countdown-timer",
+    "number": "14",
+    "title": "Event Countdown Timer",
+    "category": "Frontend",
+    "description": "A modern, responsive Event Countdown Timer built with HTML, CSS, and JavaScript. Features include a live countdown to any specified date and time, local storage support to remember settings. Ideal for personal events, launches, or any occasion.",
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "image": "https://images.unsplash.com/photo-1588294566715-767838bf5b8a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageAlt": "Event Countdown Timer project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/event-countdown-timer/",
+    "githubUrl": "https://github.com/MUGHAL-66/event-countdown-timer"
+  },
+  {
+    "slug": "skillloop-skill-swap-platform",
+    "number": "15",
+    "title": "SkillLoop – Skill Swap Platform",
+    "category": "Frontend",
+    "description": "A modern skill-sharing web app Frontend design where users teach what they know and learn in return, featuring authentication, skill search, profiles, messaging, and a scheduling calendar—all fully responsive.",
+    "tech": [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS"
+    ],
+    "image": "https://images.unsplash.com/photo-1758691737158-18ffa31c0a46?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "People collaborating around a laptop",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://mughal-66.github.io/Skillloop-Skill-Swap/",
+    "githubUrl": "https://github.com/MUGHAL-66/Skillloop-Skill-Swap"
+  },
+  {
+    "slug": "greenledger-carbon-tracking-platform",
+    "number": "16",
+    "title": "GreenLedger – Carbon Tracking Platform",
+    "category": "Frontend",
+    "description": "A community-driven web app for tracking and reducing your carbon footprint. Users can join challenges, set goals, track activities, and see their environmental impact in real time. Fully responsive frontend built with React and Vite.",
+    "tech": [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS"
+    ],
+    "image": "https://images.unsplash.com/photo-1610409030348-fcee054fd0f0?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Green forest for the GreenLedger sustainability project",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/GreenLedger/",
+    "githubUrl": "https://github.com/MUGHAL-66/GreenLedger"
+  },
+  {
+    "slug": "responza-modern-survey-form-platform",
+    "number": "17",
+    "title": "Responza – Modern Survey & Form Platform",
+    "category": "Frontend",
+    "description": "Responza is a sleek, fully responsive survey and form-management web application. Built with a React-driven frontend, it lets users create, distribute, and analyze surveys in real time with intuitive dashboards and smooth interactions.",
+    "tech": [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS"
+    ],
+    "image": "https://images.unsplash.com/photo-1587116987844-bd3d2f866f16?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageAlt": "Responza – Modern Survey & Form Platform project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/Responza/",
+    "githubUrl": "https://github.com/MUGHAL-66/Responza"
+  },
+  {
+    "slug": "nearnow-hyper-local-event-discovery",
+    "number": "18",
+    "title": "NearNow – Hyper-Local Event Discovery",
+    "category": "Frontend",
+    "description": "NearNow is a modern, mobile-first event-discovery web app designed to connect neighbors with live happenings in their area. Users can browse curated categories, RSVP, and engage with organizers in real time.",
+    "tech": [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS"
+    ],
+    "image": "https://images.unsplash.com/photo-1621112904887-419379ce6824?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageAlt": "NearNow – Hyper-Local Event Discovery project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/NearNow/",
+    "githubUrl": "https://github.com/MUGHAL-66/NearNow"
+  },
+  {
+    "slug": "hustle-app-modern-react-web-application",
+    "number": "19",
+    "title": "Hustle App – Modern React Web Application",
+    "category": "Frontend",
+    "description": "Hustle App is a modern finance and productivity platform tailored for freelancers and side-hustlers. Built with React and TypeScript, it helps users manage income, expenses, goals, and tax estimates in one place With beautiful charts, responsive UI, and smooth animations.",
+    "tech": [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS"
+    ],
+    "image": "https://images.unsplash.com/photo-1556761175-129418cb2dfe?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageAlt": "Hustle App – Modern React Web Application project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/HustleLedger/",
+    "githubUrl": "https://github.com/MUGHAL-66/HustleLedger"
+  },
+  {
+    "slug": "quickhood-hyper-local-delivery-platform",
+    "number": "20",
+    "title": "QuickHood – Hyper-Local Delivery Platform",
+    "category": "Frontend",
+    "description": "QuickHood is a hyper-local delivery platform connecting customers with nearby artisans, bakers, florists, and home cooks. Built with modern React tooling, it emphasizes community-driven experiences, offering fresh, handcrafted, and authentic products from small local vendors.",
+    "tech": [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS"
+    ],
+    "image": "https://images.unsplash.com/photo-1662899311670-7e6bbe986166?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageAlt": "QuickHood – Hyper-Local Delivery Platform project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/QuickHood/",
+    "githubUrl": "https://github.com/MUGHAL-66/QuickHood"
+  },
+  {
+    "slug": "pharmatrack",
+    "number": "21",
+    "title": "PharmaTrack",
+    "category": "Frontend",
+    "description": "PharmaTrack is a modern and professional Pharmacy Management System frontend designed in Figma. It features split-screen login/signup pages, an intuitive medicine inventory dashboard, sales tracking, analytics panels, and fully responsive UI components crafted for pharmacy operations and healthcare management interfaces.",
+    "tech": [
+      "TypeScript",
+      "CSS",
+      "React",
+      "Vite",
+      "HTML"
+    ],
+    "image": "https://images.unsplash.com/photo-1576602976047-174e57a47881?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageAlt": "PharmaTrack project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/PharmaTrack/",
+    "githubUrl": "https://github.com/MUGHAL-66/PharmaTrack"
+  },
+  {
+    "slug": "ethereal-wardrobe-modern-fashion-e-commerce-ui",
+    "number": "22",
+    "title": "Ethereal Wardrobe – Modern Fashion E-Commerce UI",
+    "category": "Frontend",
+    "description": "Ethereal Wardrobe is a modern clothing e-commerce frontend inspired by Figma design principles. It offers an elegant and responsive interface for men's and women's fashion collections, featuring sleek product grids, banners, and a seamless shopping experience — future-ready for Shopify and Node.js integration.",
+    "tech": [
+      "React",
+      "Vite",
+      "TypeScript",
+      "CSS",
+      "HTML"
+    ],
+    "image": "https://images.unsplash.com/photo-1611048268330-53de574cae3b?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageAlt": "Ethereal Wardrobe – Modern Fashion E-Commerce UI project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/Ethereal-Wardrobe/",
+    "githubUrl": "https://github.com/MUGHAL-66/Ethereal-Wardrobe"
+  },
+  {
+    "slug": "pathwise-ai-career-counseling-platform",
+    "number": "23",
+    "title": "Pathwise – AI Career Counseling Platform",
+    "category": "Frontend",
+    "description": "PathWise is a modern luxury-style frontend for an AI Career Counsellor platform. It includes a responsive landing page, user authentication, interactive dashboard, multi-step assessment forms, and a result visualization interface — all crafted with a premium and accessible design aesthetic.",
+    "tech": [
+      "TypeScript",
+      "CSS",
+      "HTML",
+      "React",
+      "Vite"
+    ],
+    "image": "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0",
+    "imageAlt": "Pathwise – AI Career Counseling Platform project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/Pathwise/",
+    "githubUrl": "https://github.com/MUGHAL-66/Pathwise"
+  },
+  {
+    "slug": "taskly-smart-task-management-app",
+    "number": "24",
+    "title": "Taskly – Smart Task Management App",
+    "category": "Frontend",
+    "description": "Taskly is a clean, modern productivity web app built to help users manage daily tasks efficiently. It features task creation, editing, deletion, and completion tracking, with data persistence using local storage and an intuitive drag-and-drop interface — all wrapped in a sleek, responsive UI design.",
+    "tech": [
+      "React",
+      "Vite",
+      "CSS",
+      "HTML",
+      "TypeScript"
+    ],
+    "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0",
+    "imageAlt": "Taskly – Smart Task Management App project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/Taskly/",
+    "githubUrl": "https://github.com/MUGHAL-66/Taskly"
+  },
+  {
+    "slug": "stockify-inventory-management-system",
+    "number": "25",
+    "title": "Stockify – Inventory Management System",
+    "category": "Frontend",
+    "description": "Stockify is a premium inventory management system for small shops and businesses. It includes product and supplier management, sales reports, charts, and settings — designed with a luxury blue gradient theme, elegant animations, and responsive layouts for both desktop and mobile interfaces.",
+    "tech": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0",
+    "imageAlt": "Stockify – Inventory Management System project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/Stockify/",
+    "githubUrl": "https://github.com/MUGHAL-66/Stockify"
+  },
+  {
+    "slug": "opticommerce-ai-e-commerce-optimizer",
+    "number": "26",
+    "title": "OptiCommerce – AI E-Commerce Optimizer",
+    "category": "Frontend",
+    "description": "OptiCommerce is an AI-powered e-commerce optimization platform that helps online sellers improve product visibility, sales, and marketing efficiency. It includes dashboards for SEO insights, product analytics, and marketing automation — designed with a luxury theme.",
+    "tech": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "image": "https://images.unsplash.com/photo-1711097383282-28097ae16b1d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870",
+    "imageAlt": "OptiCommerce – AI E-Commerce Optimizer project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/OptiCommerce/",
+    "githubUrl": "https://github.com/MUGHAL-66/OptiCommerce"
+  },
+  {
+    "slug": "myzenspace-mindfulness-relaxation-app",
+    "number": "27",
+    "title": "MyZenSpace – Mindfulness & Relaxation App",
+    "category": "Frontend",
+    "description": "MyZenSpace is a mindfulness and relaxation web app built with React, TypeScript, and Framer Motion. It helps users relax with guided breathing, sound therapy, and 3D visualizations — offering a serene experience through elegant silver-orange-yellow gradients.",
+    "tech": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0",
+    "imageAlt": "MyZenSpace – Mindfulness & Relaxation App project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "liveUrl": "https://MUGHAL-66.github.io/MyZenSpace/",
+    "githubUrl": "https://github.com/MUGHAL-66/MyZenSpace"
+  },
+  {
+    "slug": "calculator-app",
+    "number": "28",
+    "title": "Calculator App",
+    "category": "Full-Stack",
+    "description": "An interactive calculator web application built using HTML, CSS, and JavaScript. This repository contains the code for a sleek and user-friendly calculator interface, allowing users to perform basic arithmetic operations seamlessly within their web browser.",
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "image": "https://images.unsplash.com/photo-1711344397160-b23d5deaa012?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYWxjdWxhdG9yJTIwYXBwbGljYXRpb24lMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzU4MjE3MzMxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    "imageAlt": "Calculator App project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "githubUrl": "https://github.com/MUGHAL-66/Calculator-App-in-Html-Css-Javascript"
+  },
+  {
+    "slug": "login-form",
+    "number": "29",
+    "title": "Login Form",
+    "category": "Full-Stack",
+    "description": "This repository contains a simple and responsive login form created using HTML, CSS, and JavaScript. The form includes basic validation for email format and password length, implemented with JavaScript. Its clean and user-friendly design.",
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Login Form project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "githubUrl": "https://github.com/MUGHAL-66/LogIn-Form-in-htmls-css-java"
+  },
+  {
+    "slug": "adab-e-jahan",
+    "number": "30",
+    "title": "Adab-e-Jahan",
+    "category": "Full-Stack",
+    "description": "Design (Angular) for a digital library where writers can upload and sell books.Users can read, download, or purchase books seamlessly. The platform offers a clean and intuitive interface for easy navigation.Designed to provide a seamless reading.",
+    "tech": [
+      "Angular",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "image": "https://images.unsplash.com/photo-1512820790803-83ca734da794?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    "imageAlt": "Adab-e-Jahan project preview",
+    "overview": "Adab-e-Jahan is a digital library designed to provide writers and readers with a seamless platform for publishing, discovering, purchasing, downloading, and reading books.",
+    "challenge": "Create a simple and intuitive digital library experience that makes book discovery, reading, downloading, and purchasing easy for users.",
+    "solution": "Designed and developed a clean Angular-based interface with intuitive navigation and a user-focused reading experience.",
+    "role": "Frontend Developer",
+    "features": [
+      {
+        "title": "Digital Library",
+        "description": "Provides a platform for discovering and accessing digital books."
+      },
+      {
+        "title": "Book Publishing",
+        "description": "Allows writers to upload and sell their books through the platform."
+      },
+      {
+        "title": "Reader Experience",
+        "description": "Provides users with convenient options to read, download, or purchase books."
+      }
+    ],
+    "screenshots": [],
+    "githubUrl": "https://github.com/MUGHAL-66/Adab-e-jahan"
+  },
+  {
+    "slug": "student-evaluation-system",
+    "number": "31",
+    "title": "Student Evaluation System",
+    "category": "Full-Stack",
+    "description": "A C# project for evaluating student performance and managing academic records.Teachers can enter grades, track progress, and generate detailed evaluation reports. The system streamlines assessment processes and improves data accuracy.",
+    "tech": [
+      "C#",
+      ".NET Framework",
+      "SQL Server"
+    ],
+    "image": "https://images.unsplash.com/photo-1764332688365-cee7324191a4?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Students sitting in a classroom",
+    "overview": "The Student Evaluation System is an academic management application designed to streamline student assessment, grade management, progress tracking, and evaluation reporting.",
+    "challenge": "Streamline the assessment process while improving academic record management and data accuracy.",
+    "solution": "Developed a C# and .NET-based system connected with SQL Server to manage student performance and academic records.",
+    "role": "Full-Stack Developer",
+    "features": [
+      {
+        "title": "Grade Management",
+        "description": "Allows teachers to enter and manage student grades."
+      },
+      {
+        "title": "Progress Tracking",
+        "description": "Helps track student academic performance over time."
+      },
+      {
+        "title": "Evaluation Reports",
+        "description": "Supports generating detailed student evaluation reports."
+      }
+    ],
+    "screenshots": [],
+    "githubUrl": "https://github.com/MUGHAL-66/SE_Project-Student-Evaluation-System"
+  },
+  {
+    "slug": "dailyspark",
+    "number": "32",
+    "title": "DailySpark",
+    "category": "Full-Stack",
+    "description": "DailySpark is a modern and interactive motivational quote generator designed to brighten your day with inspiring words. Each time you refresh the page or click the “New Quote” button, it delivers a fresh, uplifting quote to keep you motivated.",
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "image": "https://images.unsplash.com/photo-1589561253898-768105ca91a8?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "imageAlt": "DailySpark project preview",
+    "overview": "[Add a project overview.]",
+    "challenge": "[Add the project challenge.]",
+    "solution": "[Add the project solution.]",
+    "role": "[Add your role.]",
+    "features": [
+      {
+        "title": "[Add key features.]",
+        "description": "[Add verified feature details.]"
+      }
+    ],
+    "screenshots": [],
+    "githubUrl": "https://github.com/MUGHAL-66/DailySpark"
+  }
+]

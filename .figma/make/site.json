@@ -1,0 +1,11 @@
+{
+  "title": "Usman Ali — Full-Stack Developer, Shopify Expert & AI Engineer",
+  "description": "Showcase your skills and projects with a premium, modern portfolio website designed for software developers, highlighting expertise in full-stack development, Shopify, and AI.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
