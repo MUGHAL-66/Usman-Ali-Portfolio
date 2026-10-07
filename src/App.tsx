@@ -1,6 +1,6 @@
 ﻿import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
 import heroPortrait from "./assets/U.png";
-import aboutPortrait from "./assets/U1.jpeg";
+import aboutPortrait from "./assets/U1.png";
 import projectCatalog from "./data/projects.json";
 
 const CALENDLY_URL = "https://calendly.com/dev-usman11/30min";

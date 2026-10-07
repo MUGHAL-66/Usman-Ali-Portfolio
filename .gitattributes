@@ -144,3 +144,9 @@
 *.stl                filter=lfs diff=lfs merge=lfs -text
 *.nc                 filter=lfs diff=lfs merge=lfs -text
 *.mat                filter=lfs diff=lfs merge=lfs -text
+
+# Vercel needs these source images as actual Git blobs; Git LFS pointer files
+# were copied into the production bundle instead of being resolved at build time.
+src/assets/U.png -filter -diff -merge
+src/assets/U1.png -filter -diff -merge
+src/assets/usman.png -filter -diff -merge
