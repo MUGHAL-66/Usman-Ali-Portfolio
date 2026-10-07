@@ -37,7 +37,6 @@ type Project = {
   solution: string;
   role: string;
   features: { title: string; description: string }[];
-  screenshots: string[];
   liveUrl?: string;
   githubUrl?: string;
 };
@@ -210,6 +209,11 @@ function Link({ to, children, className = "", onClick }: LinkProps) {
 
 function Arrow() {
   return <span className="arrow" aria-hidden="true">↗</span>;
+}
+
+function hasProjectCopy(value?: string): value is string {
+  const copy = value?.trim();
+  return Boolean(copy && !/^\[.*\]$/.test(copy));
 }
 
 function ButtonLink({
@@ -953,66 +957,63 @@ function ProjectsPage() {
 }
 
 function ProjectDetailPage({ project }: { project: Project }) {
-  const nextIndex = (projects.findIndex((item) => item.slug === project.slug) + 1) % projects.length;
-  const next = projects[nextIndex];
+  const projectIndex = projects.findIndex((item) => item.slug === project.slug);
+  const previous = projectIndex > 0 ? projects[projectIndex - 1] : undefined;
+  const next = projectIndex >= 0 && projectIndex < projects.length - 1 ? projects[projectIndex + 1] : undefined;
+  const overview = hasProjectCopy(project.overview) ? project.overview : project.description;
+  const challenge = hasProjectCopy(project.challenge) ? project.challenge : undefined;
+  const solution = hasProjectCopy(project.solution) ? project.solution : undefined;
+  const role = hasProjectCopy(project.role) ? project.role : undefined;
+  const features = project.features.filter((feature) => hasProjectCopy(feature.title) && hasProjectCopy(feature.description));
 
   return (
-    <main>
-      <section className="case-hero">
-        <div className="breadcrumb"><Link to="/">Home</Link><span>/</span><Link to="/projects">Projects</Link><span>/</span><strong>{project.title}</strong></div>
+    <main className="case-study-page">
+      <section className="case-hero case-study-hero">
+        <div className="case-study-topline"><Link to="/projects" className="case-back-link"><span aria-hidden="true">←</span> All Projects</Link><span className="case-study-count">{project.number} <span>/</span> {String(projects.length).padStart(2, "0")}</span></div>
         <div className="case-title-row">
-          <div><SectionLabel>{project.category} — Case Study</SectionLabel><h1>{project.title.toUpperCase()}</h1></div>
-          <p>{project.description}</p>
+          <div><SectionLabel>Project / {project.category}</SectionLabel><h1>{project.title}</h1></div>
+          <div className="case-hero-summary"><span>Case study / {project.number}</span><p>{project.description}</p><div className="case-project-actions">
+            {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="case-project-action">View live project <Arrow /></a>}
+            {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="case-project-action">View source <Arrow /></a>}
+          </div></div>
         </div>
-        {project.image ? (
-          <img src={project.image} alt={project.imageAlt ?? `${project.title} preview`} className="case-hero-image project-detail-image" />
-        ) : (
-          <ImagePlaceholder label="[ADD PROJECT HERO IMAGE]" className="case-hero-image" />
-        )}
+        <figure className="case-study-visual">
+          <div className="case-study-media">{project.image ? <img src={project.image} alt={project.imageAlt ?? `${project.title} project preview`} className="project-detail-image" /> : <ImagePlaceholder label="[PROJECT IMAGE]" />}</div>
+          <figcaption><span>{project.number} / Project visual</span><span>{project.category}</span></figcaption>
+        </figure>
       </section>
-      <section className="section case-overview">
-        <SectionLabel>Overview</SectionLabel>
-        <p className="display-copy">{project.overview}</p>
-        <div className="case-facts">
-          <div><span>My Role</span><strong>{project.role}</strong></div>
-          <div><span>Services</span><strong>{project.category}</strong></div>
-          <div><span>Stack</span><strong>{project.tech.join(" · ")}</strong></div>
-        </div>
+      <section className="section case-metadata" aria-label="Project information">
+        <div><span>Project</span><strong>{project.number}</strong></div>
+        <div><span>Services</span><strong>{project.category}</strong></div>
+        <div><span>Technologies</span><strong>{String(project.tech.length).padStart(2, "0")} in the stack</strong></div>
       </section>
-      <section className="dark-detail case-story">
-        <div><SectionLabel>The Challenge</SectionLabel><h2>THE PROJECT<br /><em>CHALLENGE.</em></h2></div>
-        <p>{project.challenge}</p>
+      <section className="section case-overview case-editorial-section">
+        <div className="case-section-heading"><SectionLabel>01 / Overview</SectionLabel><h2>THE WORK<br /><em>IN CONTEXT.</em></h2></div>
+        <p className="case-overview-copy">{overview}</p>
       </section>
-      <section className="section case-story">
-        <div><SectionLabel>The Solution</SectionLabel><h2>THE APPROACH<br /><em>AND SOLUTION.</em></h2></div>
-        <p>{project.solution}</p>
-      </section>
-      <section className="section">
-        <SectionLabel>Key Features</SectionLabel>
-        <div className="why-grid">
-          {project.features.map((feature, index) => (
-            <article key={`${feature.title}-${index}`}><span>0{index + 1}</span><h3>{feature.title}</h3><p>{feature.description}</p></article>
-          ))}
-        </div>
-      </section>
-      <section className="section screenshot-section">
-        <SectionLabel>Screenshots</SectionLabel>
-        <div className="screenshot-grid">
-          {project.screenshots.length > 0 ? project.screenshots.map((screenshot, index) => (
-            <img src={screenshot} alt={`${project.title} screenshot ${index + 1}`} key={screenshot} className="project-screenshot" />
-          )) : <ImagePlaceholder label="[ADD PROJECT SCREENSHOTS]" />}
-        </div>
-      </section>
-      {(project.liveUrl || project.githubUrl) && <section className="section results-section">
-        <div><SectionLabel>Project Links</SectionLabel><h2>EXPLORE THE<br /><em>PROJECT.</em></h2></div>
-        <div className="button-row">
-          {project.liveUrl && <a className="button" href={project.liveUrl} target="_blank" rel="noreferrer"><span>Live Demo</span><Arrow /></a>}
-          {project.githubUrl && <a className="button button-secondary" href={project.githubUrl} target="_blank" rel="noreferrer"><span>GitHub</span><Arrow /></a>}
+      {role && <section className="section case-role-section">
+        <SectionLabel>02 / My role</SectionLabel>
+        <div><span>Contribution</span><h2>{role}</h2></div>
+      </section>}
+      {project.tech.length > 0 && <section className="section case-technology-section">
+        <div className="case-section-heading"><SectionLabel>{role ? "03" : "02"} / Technology</SectionLabel><h2>THE TOOLS<br /><em>BEHIND IT.</em></h2></div>
+        <ol className="case-tech-list">{project.tech.map((technology, index) => <li key={`${technology}-${index}`}><span>{String(index + 1).padStart(2, "0")}</span><strong>{technology}</strong></li>)}</ol>
+      </section>}
+      {(challenge || solution) && <section className="section case-insights">
+        <SectionLabel>{role ? "04" : "03"} / Build notes</SectionLabel>
+        <div className="case-insight-list">
+          {challenge && <article><span>Challenge</span><p>{challenge}</p></article>}
+          {solution && <article><span>Approach</span><p>{solution}</p></article>}
         </div>
       </section>}
-      <Link to={`/projects/${next.slug}`} className="next-project">
-        <span>Next Project</span><strong>{next.title}</strong><span className="next-arrow">?</span>
-      </Link>
+      {features.length > 0 && <section className="section case-features-section">
+        <div className="case-section-heading"><SectionLabel>Project details</SectionLabel><h2>WHAT IT<br /><em>INCLUDES.</em></h2></div>
+        <div className="case-feature-list">{features.map((feature, index) => <article key={`${feature.title}-${index}`}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{feature.title}</h3><p>{feature.description}</p></div></article>)}</div>
+      </section>}
+      {(previous || next) && <nav className={`case-project-navigation ${previous ? "has-previous" : ""}`} aria-label="Browse projects">
+        {previous && <Link to={`/projects/${previous.slug}`} className="case-neighbor case-neighbor-previous"><span><span aria-hidden="true">←</span> Previous project</span><strong>{previous.title}</strong></Link>}
+        {next && <Link to={`/projects/${next.slug}`} className="case-neighbor case-neighbor-next"><span>Next project <span aria-hidden="true">→</span></span><strong>{next.title}</strong></Link>}
+      </nav>}
     </main>
   );
 }
