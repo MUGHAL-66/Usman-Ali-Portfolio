@@ -41,6 +41,12 @@ type Project = {
   githubUrl?: string;
 };
 
+type ArticleBlock =
+  | { type: "heading"; text: string }
+  | { type: "paragraph"; text: string }
+  | { type: "quote"; text: string }
+  | { type: "code"; text: string };
+
 type Article = {
   slug: string;
   title: string;
@@ -48,6 +54,9 @@ type Article = {
   excerpt: string;
   date: string;
   time: string;
+  image: string;
+  imageAlt: string;
+  content?: ArticleBlock[];
 };
 
 const services: Service[] = [
@@ -119,6 +128,18 @@ const articles: Article[] = [
     excerpt: "A practical look at architecture, clarity and the decisions that help software grow.",
     date: "[DATE]",
     time: "6 min read",
+    image: "https://images.unsplash.com/photo-1619410283995-43d9134e7656?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Code editor displaying React source code on a laptop screen",
+    content: [
+      { type: "heading", text: "Start with the problem, not the technology" },
+      { type: "paragraph", text: "Strong digital products begin with context. Before choosing a framework, service or architecture, clarify the user need and the business constraint. Technology becomes valuable when it serves that understanding." },
+      { type: "quote", text: "The best technical decision is the one that makes the product clearer, more reliable and easier to evolve." },
+      { type: "heading", text: "Make complexity earn its place" },
+      { type: "paragraph", text: "Every layer of abstraction creates a maintenance cost. Build enough structure for the current problem and the most credible next step, but avoid designing for imaginary scale." },
+      { type: "code", text: "// Clear intent over clever abstraction\nconst solution = understand(problem)\n  .then(plan)\n  .then(build)\n  .then(improve);" },
+      { type: "heading", text: "Build for the people after you" },
+      { type: "paragraph", text: "Readable code, concise documentation and predictable patterns are part of the product. They help future teams move quickly and make better decisions with confidence." },
+    ],
   },
   {
     slug: "shopify-store-performance",
@@ -127,6 +148,44 @@ const articles: Article[] = [
     excerpt: "The common performance bottlenecks that quietly damage a commerce experience.",
     date: "[DATE]",
     time: "5 min read",
+    image: "https://images.unsplash.com/photo-1753161618037-e6a8f740fd47?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Online clothing shopping in a laptop-based retail workspace",
+  },
+  {
+    slug: "building-flexible-shopify-themes",
+    title: "Building Shopify Themes That Stay Flexible",
+    category: "Shopify",
+    excerpt: "Structure Liquid sections and settings so merchants can evolve a storefront without losing design consistency.",
+    date: "[DATE]",
+    time: "6 min read",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Retail checkout taking place at a modern ecommerce counter",
+    content: [
+      { type: "heading", text: "Model sections around merchant decisions" },
+      { type: "paragraph", text: "A useful theme setting represents a real choice a store owner needs to make. Group related controls, give them clear labels and provide defaults that look intentional before any customization. This keeps the editor approachable as a storefront grows." },
+      { type: "heading", text: "Keep Liquid components predictable" },
+      { type: "paragraph", text: "Give sections focused responsibilities and reuse small snippets for repeated presentation patterns. Use schema settings for content and appearance, while leaving business rules explicit in Liquid. Predictable boundaries make later changes safer." },
+      { type: "heading", text: "Protect the storefront experience" },
+      { type: "paragraph", text: "Check section behavior at narrow widths, with long product names, missing optional content and merchant-selected images. Flexible themes work when those ordinary edge cases are designed into the component rather than patched after launch." },
+    ],
+  },
+  {
+    slug: "shopify-customization-without-fragility",
+    title: "Customizing Shopify Without Making It Fragile",
+    category: "Shopify",
+    excerpt: "Balance storefront requirements with maintainable Liquid, clear integrations and a safer path for future updates.",
+    date: "[DATE]",
+    time: "5 min read",
+    image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Retail team reviewing an online commerce experience on a tablet",
+    content: [
+      { type: "heading", text: "Start with the platform's extension points" },
+      { type: "paragraph", text: "Before adding custom code, identify whether a theme setting, app block, metafield or documented API already covers the requirement. Using the platform's intended seams reduces upgrade friction and makes ownership clearer." },
+      { type: "heading", text: "Keep integrations loosely coupled" },
+      { type: "paragraph", text: "Treat third-party scripts and services as dependencies with performance and failure costs. Load them only where needed, isolate their markup and define what the storefront should do if a service is unavailable." },
+      { type: "heading", text: "Document the decisions that matter" },
+      { type: "paragraph", text: "Record why a customization exists, which store data it depends on and how to verify it after a theme update. A short handoff note prevents a small enhancement from becoming an unexplained source of production risk." },
+    ],
   },
   {
     slug: "ai-in-modern-web-development",
@@ -135,6 +194,44 @@ const articles: Article[] = [
     excerpt: "Using intelligent tools where they create value—not simply where they create noise.",
     date: "[DATE]",
     time: "7 min read",
+    image: "https://images.unsplash.com/photo-1770233621425-5d9ee7a0a700?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Abstract artificial intelligence concept rendered within a human head",
+  },
+  {
+    slug: "designing-reliable-llm-features",
+    title: "Designing Reliable LLM Features for Web Apps",
+    category: "AI",
+    excerpt: "Patterns for validating model output, handling latency and keeping AI-assisted workflows understandable to users.",
+    date: "[DATE]",
+    time: "7 min read",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Abstract visualization of an artificial intelligence neural network",
+    content: [
+      { type: "heading", text: "Define the contract around the model" },
+      { type: "paragraph", text: "Treat an LLM response as untrusted input. Ask for a constrained shape, validate it on the server and provide a deliberate fallback when the output is incomplete or does not match the expected schema." },
+      { type: "heading", text: "Design for latency and failure" },
+      { type: "paragraph", text: "Model calls can be slower and less predictable than ordinary application logic. Set timeouts, handle rate limits, avoid duplicate requests and show progress in a way that explains what the user is waiting for." },
+      { type: "heading", text: "Keep people in control" },
+      { type: "paragraph", text: "Make generated suggestions reviewable before they trigger meaningful actions. Clear boundaries, editable results and useful error states let the model assist a workflow without making the interface feel unpredictable." },
+    ],
+  },
+  {
+    slug: "practical-ai-automation-patterns",
+    title: "Practical AI Automation for Product Workflows",
+    category: "AI",
+    excerpt: "Use classification, extraction and human review to reduce repetitive work without hiding important decisions behind automation.",
+    date: "[DATE]",
+    time: "6 min read",
+    image: "https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Glowing digital network representing machine learning and automation",
+    content: [
+      { type: "heading", text: "Choose a narrow, measurable task" },
+      { type: "paragraph", text: "A good first automation has clear inputs, a repeatable outcome and a way to measure time saved or errors reduced. Summarization, field extraction and request routing are easier to evaluate than an open-ended assistant." },
+      { type: "heading", text: "Route uncertain cases to review" },
+      { type: "paragraph", text: "Not every response should be accepted automatically. Use validation and confidence signals to separate straightforward cases from ambiguous ones, then make human review part of the normal workflow." },
+      { type: "heading", text: "Monitor the workflow over time" },
+      { type: "paragraph", text: "Track success, correction rates, latency and service cost while protecting sensitive data. Real usage reveals where prompts, business rules or the underlying process need improvement." },
+    ],
   },
   {
     slug: "designing-reliable-apis",
@@ -143,6 +240,8 @@ const articles: Article[] = [
     excerpt: "Simple principles for predictable, secure and maintainable service interfaces.",
     date: "[DATE]",
     time: "8 min read",
+    image: "https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Rows of server racks in a data center",
   },
   {
     slug: "dotnet-for-modern-products",
@@ -151,6 +250,44 @@ const articles: Article[] = [
     excerpt: "Why a mature ecosystem remains a strong choice for ambitious product teams.",
     date: "[DATE]",
     time: "6 min read",
+    image: "https://images.unsplash.com/photo-1753998943619-b9cd910887e5?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Source code displayed on a computer screen",
+  },
+  {
+    slug: "aspnet-core-api-boundaries",
+    title: "Clear API Boundaries with ASP.NET Core",
+    category: ".NET",
+    excerpt: "Organize ASP.NET Core endpoints, validation and application logic so a growing API remains testable and predictable.",
+    date: "[DATE]",
+    time: "7 min read",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Developer writing backend application code at a laptop",
+    content: [
+      { type: "heading", text: "Keep transport concerns at the edge" },
+      { type: "paragraph", text: "Controllers or endpoint handlers should translate HTTP requests into application calls and map results back to responses. Keeping persistence and business rules outside that boundary makes core behavior easier to test." },
+      { type: "heading", text: "Validate inputs before doing work" },
+      { type: "paragraph", text: "Define request shapes explicitly and return consistent validation errors. Clear contracts help API consumers correct requests and prevent malformed data from travelling deep into the application." },
+      { type: "heading", text: "Make operational behavior deliberate" },
+      { type: "paragraph", text: "Use structured logs, centralized exception handling and cancellation tokens for long-running operations. These details improve diagnosis and resource use when the API moves beyond local development." },
+    ],
+  },
+  {
+    slug: "evolving-dotnet-data-access",
+    title: "Evolving Data Access in .NET Applications",
+    category: ".NET",
+    excerpt: "A balanced approach to persistence boundaries, Entity Framework Core and database changes as an application grows.",
+    date: "[DATE]",
+    time: "6 min read",
+    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Close view of a developer's code editor and programming workspace",
+    content: [
+      { type: "heading", text: "Keep persistence behind application needs" },
+      { type: "paragraph", text: "Expose queries and commands that describe what the application needs instead of leaking database details through every layer. This keeps data access focused while allowing EF Core to handle routine mapping and tracking." },
+      { type: "heading", text: "Treat migrations as reviewed changes" },
+      { type: "paragraph", text: "Schema migrations affect real data and deserve the same review as application code. Check generated SQL, consider the size of existing tables and plan deployment order when a change cannot be applied atomically." },
+      { type: "heading", text: "Optimize after measuring" },
+      { type: "paragraph", text: "Inspect query counts, execution plans and response timings before introducing caching or more complex data patterns. Small, measured changes are easier to validate than broad optimizations based on assumptions." },
+    ],
   },
   {
     slug: "cloud-ready-from-day-one",
@@ -159,6 +296,44 @@ const articles: Article[] = [
     excerpt: "Building for operational clarity without over-engineering the first release.",
     date: "[DATE]",
     time: "5 min read",
+    image: "https://images.unsplash.com/photo-1777047023536-8e47688b77f9?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Earth and cloud formations seen from space",
+  },
+  {
+    slug: "deployment-readiness-for-web-apps",
+    title: "Deployment Readiness for Modern Web Apps",
+    category: "Cloud",
+    excerpt: "A practical checklist for configuration, health checks and release visibility before a web application reaches production.",
+    date: "[DATE]",
+    time: "6 min read",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Digital view of Earth connected by global data networks",
+    content: [
+      { type: "heading", text: "Separate configuration from the build" },
+      { type: "paragraph", text: "Keep environment-specific values outside the application bundle and define required settings clearly. This lets the same artifact move through environments without baking secrets or deployment assumptions into source code." },
+      { type: "heading", text: "Make health visible" },
+      { type: "paragraph", text: "A useful health check distinguishes whether the application can serve traffic from whether a dependency is degraded. Pair checks with structured logs and basic request metrics so failures have context." },
+      { type: "heading", text: "Plan the release and rollback" },
+      { type: "paragraph", text: "Use repeatable builds, review database changes and know how to return to a healthy release. A small deployment checklist reduces avoidable surprises without turning a simple project into an elaborate platform exercise." },
+    ],
+  },
+  {
+    slug: "scaling-cloud-services-gradually",
+    title: "Scaling Cloud Services Without Overbuilding",
+    category: "Cloud",
+    excerpt: "Use measured traffic, service limits and operational signals to decide when a cloud application actually needs more infrastructure.",
+    date: "[DATE]",
+    time: "5 min read",
+    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1440&q=80",
+    imageAlt: "Cloud infrastructure represented by a connected server network",
+    content: [
+      { type: "heading", text: "Start with the workload you have" },
+      { type: "paragraph", text: "Measure request volume, latency, error rates and resource use before selecting a scaling strategy. A clear baseline shows whether the constraint is compute, database access, external services or inefficient application work." },
+      { type: "heading", text: "Scale the constrained part first" },
+      { type: "paragraph", text: "Horizontal application instances do not solve every bottleneck. Review connection pools, background queues, database indexes and third-party limits before adding infrastructure that increases cost without improving the user experience." },
+      { type: "heading", text: "Keep cost and reliability observable" },
+      { type: "paragraph", text: "Set budgets and alerts alongside service health indicators. Gradual changes tied to real signals make it easier to understand both their reliability benefit and their operating cost." },
+    ],
   },
 ];
 
@@ -188,6 +363,10 @@ function getRelatedProjects(service: Service) {
 
 function hasArticleDate(article: Article) {
   return Boolean(article.date && !article.date.startsWith("["));
+}
+
+function articleHeadingId(heading: string) {
+  return heading.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
 function Link({ to, children, className = "", onClick }: LinkProps) {
@@ -587,12 +766,12 @@ function PageHero({
 }
 
 function ArticleArtwork({ article, className = "" }: { article: Article; className?: string }) {
+  const isHero = className === "article-image" || className === "featured-article-art";
   return (
-    <div className={`article-art ${className}`} aria-hidden="true">
-      <span className="article-art-category">{article.category} / NOTES</span>
-      <span className="article-art-mark">&lt; / &gt;</span>
-      <span className="article-art-index">{article.time}</span>
-    </div>
+    <figure className={`article-art ${className}`}>
+      <img src={article.image} alt={article.imageAlt} loading={isHero ? "eager" : "lazy"} fetchPriority={isHero ? "high" : "auto"} decoding="async" />
+      <figcaption><span>{article.category} / Journal</span><span>{article.time}</span></figcaption>
+    </figure>
   );
 }
 
@@ -654,17 +833,15 @@ function EditorialProject({ project, index }: { project: Project; index: number 
 }
 
 function EditorialArticle({ article, index }: { article: Article; index: number }) {
-  return <article className="editorial-article"><span className="editorial-article-index">{String(index + 1).padStart(2, "0")}</span><div className="editorial-article-topic"><span>{article.category}</span>{hasArticleDate(article) && <time>{article.date}</time>}</div><div className="editorial-article-copy"><h2><Link to={`/blog/${article.slug}`}>{article.title}</Link></h2><p>{article.excerpt}</p></div><Link to={`/blog/${article.slug}`} className="editorial-article-link" aria-label={`Read ${article.title}`}>Read <Arrow /></Link><span className="editorial-article-time">{article.time}</span></article>;
+  return <article className="editorial-article"><span className="editorial-article-index">{String(index + 1).padStart(2, "0")}</span><Link to={`/blog/${article.slug}`} className="editorial-article-image" aria-label={`Read ${article.title}`}><ArticleArtwork article={article} className="editorial-article-art" /></Link><div className="editorial-article-content"><div className="editorial-article-topic"><span>{article.category}</span>{hasArticleDate(article) && <time>{article.date}</time>}<span>{article.time}</span></div><div className="editorial-article-copy"><h2><Link to={`/blog/${article.slug}`}>{article.title}</Link></h2><p>{article.excerpt}</p></div><Link to={`/blog/${article.slug}`} className="editorial-article-link" aria-label={`Read ${article.title}`}>Read Article <Arrow /></Link></div></article>;
 }
 
 function BlogCard({ article }: { article: Article }) {
   return (
     <article className="blog-card">
-      <div className="blog-meta">
-        <span>{article.category}</span>
-        {hasArticleDate(article) && <time>{article.date}</time>}
-      </div>
-      <h3>{article.title}</h3>
+      <Link to={`/blog/${article.slug}`} className="blog-card-image" aria-label={`Read ${article.title}`}><ArticleArtwork article={article} className="blog-card-art" /></Link>
+      <div className="blog-meta"><span>{article.category}</span>{hasArticleDate(article) && <time>{article.date}</time>}</div>
+      <h3><Link to={`/blog/${article.slug}`}>{article.title}</Link></h3>
       <p>{article.excerpt}</p>
       <div className="blog-card-bottom">
         <span>{article.time}</span>
@@ -853,7 +1030,7 @@ function HomePage() {
             <h2>LATEST TIPS<br /><em>&amp; TRICKS.</em></h2>
             <ButtonLink to="/blog" secondary>View All Articles</ButtonLink>
           </div>
-          <div className="blog-grid">
+          <div className="blog-grid blog-preview-grid">
             {articles.slice(0, 3).map((article) => <BlogCard article={article} key={article.slug} />)}
           </div>
         </section>
@@ -1019,14 +1196,16 @@ function ProjectDetailPage({ project }: { project: Project }) {
 }
 
 function BlogPage() {
-  const categories = ["All", ...new Set(articles.map((article) => article.category))];
+  const topicOrder = ["Shopify", "AI", ".NET", "Cloud"];
+  const availableCategories = [...new Set(articles.map((article) => article.category))];
+  const categories = ["All", ...topicOrder.filter((item) => availableCategories.includes(item)), ...availableCategories.filter((item) => !topicOrder.includes(item))];
   const [category, setCategory] = useState("All");
   const visible = category === "All" ? articles : articles.filter((article) => article.category === category);
   const [featured, ...remaining] = visible;
   return (
     <main>
       <PageHero
-        eyebrow="Notes / 04"
+        eyebrow="Journal / 04"
         title="THOUGHTS ON BUILDING"
         italic="BETTER DIGITAL PRODUCTS."
         description="Practical perspectives on software, AI, commerce and the decisions behind useful digital products."
@@ -1034,10 +1213,10 @@ function BlogPage() {
       {featured && <section className="section featured-article">
         <SectionLabel>Featured Article</SectionLabel>
         <div className="featured-grid">
-          <ArticleArtwork article={featured} />
+          <Link to={`/blog/${featured.slug}`} className="featured-article-image" aria-label={`Read ${featured.title}`}><ArticleArtwork article={featured} className="featured-article-art" /></Link>
           <div>
             <span className="project-category">{featured.category} · {featured.time}</span>
-            <h2>{featured.title}</h2>
+            <h2><Link to={`/blog/${featured.slug}`}>{featured.title}</Link></h2>
             <p>{featured.excerpt}</p>
             <ButtonLink to={`/blog/${featured.slug}`} secondary>Read Article</ButtonLink>
           </div>
@@ -1047,6 +1226,7 @@ function BlogPage() {
         <div className="article-categories">
           {categories.map((item) => <button type="button" className={category === item ? "active" : ""} aria-pressed={category === item} onClick={() => setCategory(item)} key={item}>{item}</button>)}
         </div>
+        {remaining.length > 0 && <SectionLabel>Latest Articles</SectionLabel>}
         <div className="editorial-article-list">{remaining.map((article, index) => <EditorialArticle article={article} index={index} key={article.slug} />)}</div>
       </section>
     </main>
@@ -1054,39 +1234,62 @@ function BlogPage() {
 }
 
 function ArticlePage({ article }: { article: Article }) {
+  const articleIndex = articles.findIndex((item) => item.slug === article.slug);
+  const previous = articleIndex > 0 ? articles[articleIndex - 1] : undefined;
+  const next = articleIndex >= 0 ? articles[articleIndex + 1] : undefined;
+  const headings = article.content?.filter((block): block is Extract<ArticleBlock, { type: "heading" }> => block.type === "heading") ?? [];
+  const showContents = headings.length >= 3;
+  const relatedArticles = articles.filter((item) => item.slug !== article.slug && item.category === article.category).slice(0, 3);
+  const [readingProgress, setReadingProgress] = useState(0);
+
+  useEffect(() => {
+    const updateProgress = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      setReadingProgress(scrollable > 0 ? Math.min(100, Math.max(0, (window.scrollY / scrollable) * 100)) : 0);
+    };
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    return () => {
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+    };
+  }, [article.slug]);
+
   return (
     <main>
+      <div className="article-reading-progress" aria-hidden="true"><span style={{ width: `${readingProgress}%` }} /></div>
       <article className="article-page">
-        <div className="breadcrumb"><Link to="/">Home</Link><span>/</span><Link to="/blog">Blog</Link><span>/</span><strong>{article.category}</strong></div>
+        <div className="article-topline"><Link to="/blog" className="article-back-link"><span aria-hidden="true">←</span> Back to Journal</Link><span>ARTICLE / {String(articleIndex + 1).padStart(2, "0")}</span></div>
         <header className="article-header">
-          <SectionLabel>{article.category}</SectionLabel>
+          <SectionLabel>{article.category} / Journal</SectionLabel>
           <h1>{article.title}</h1>
           <p>{article.excerpt}</p>
-          <div>{hasArticleDate(article) && <span>{article.date}</span>}<span>{article.time}</span><span>By Usman Ali</span></div>
+          <div className="article-byline">{hasArticleDate(article) && <time>{article.date}</time>}<span>{article.time}</span><span>By Usman Ali</span></div>
         </header>
         <ArticleArtwork article={article} className="article-image" />
-        <div className="article-body">
-          <p className="article-lead">{article.excerpt}</p>
-          <h2>Start with the problem, not the technology</h2>
-          <p>Strong digital products begin with context. Before choosing a framework, service or architecture, clarify the user need and the business constraint. Technology becomes valuable when it serves that understanding.</p>
-          <blockquote>“The best technical decision is the one that makes the product clearer, more reliable and easier to evolve.”</blockquote>
-          <h2>Make complexity earn its place</h2>
-          <p>Every layer of abstraction creates a maintenance cost. Build enough structure for the current problem and the most credible next step, but avoid designing for imaginary scale.</p>
-          <pre><code>{`// Clear intent over clever abstraction
-const solution = understand(problem)
-  .then(plan)
-  .then(build)
-  .then(improve);`}</code></pre>
-          <h2>Build for the people after you</h2>
-          <p>Readable code, concise documentation and predictable patterns are part of the product. They help future teams move quickly and make better decisions with confidence.</p>
-          <Link to="/blog" className="text-link">? Back to Blog</Link>
+        <div className={`article-reading-layout ${showContents ? "has-contents" : ""}`}>
+          {showContents && <nav className="article-contents" aria-label="Table of contents"><span>In this article</span>{headings.map((heading) => <a href={`#${articleHeadingId(heading.text)}`} key={heading.text}>{heading.text}</a>)}</nav>}
+          <div className="article-body">
+            <p className="article-lead">{article.excerpt}</p>
+            {article.content?.map((block, index) => {
+              if (block.type === "heading") return <h2 id={articleHeadingId(block.text)} key={`${block.type}-${index}`}>{block.text}</h2>;
+              if (block.type === "paragraph") return <p key={`${block.type}-${index}`}>{block.text}</p>;
+              if (block.type === "quote") return <blockquote key={`${block.type}-${index}`}>“{block.text}”</blockquote>;
+              return <pre key={`${block.type}-${index}`}><code>{block.text}</code></pre>;
+            })}
+          </div>
         </div>
+        <footer className="article-closing">
+          <div className="article-ending"><span>End of article</span><Link to="/blog" className="text-link">Back to Journal <span aria-hidden="true">→</span></Link></div>
+          {(previous || next) && <nav className="article-pagination" aria-label="Browse articles">
+            {previous ? <Link to={`/blog/${previous.slug}`} className="article-pagination-link"><span><span aria-hidden="true">←</span> Previous article</span><strong>{previous.title}</strong></Link> : <span />}
+            {next && <Link to={`/blog/${next.slug}`} className="article-pagination-link next"><span>Next article <span aria-hidden="true">→</span></span><strong>{next.title}</strong></Link>}
+          </nav>}
+        </footer>
       </article>
       <section className="section related-articles">
-        <SectionLabel>Related Articles</SectionLabel>
-        <div className="blog-grid">
-          {articles.filter((item) => item.slug !== article.slug).slice(0, 3).map((item) => <BlogCard article={item} key={item.slug} />)}
-        </div>
+        {relatedArticles.length > 0 && <><SectionLabel>Related Articles / {article.category}</SectionLabel><div className="blog-grid">{relatedArticles.map((item) => <BlogCard article={item} key={item.slug} />)}</div></>}
       </section>
     </main>
   );
